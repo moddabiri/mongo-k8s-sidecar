@@ -27,6 +27,7 @@ var getDb = function(host, done) {
     }
   }
 
+  console.log(`Connecting to the database ${config.database} on host ${host} and port ${config.mongoPort} with options:`, mongoOptions);
   var mongoDb = new Db(config.database, new MongoServer(host, config.mongoPort, mongoOptions));
 
   mongoDb.open(function (err, db) {
@@ -35,6 +36,7 @@ var getDb = function(host, done) {
     }
 
     if(config.username) {
+        console.log(`Authenticating with username ${configs.username} and password "${configs.password}"`);
         mongoDb.authenticate(config.username, config.password, function(err, result) {
             if (err) {
               return done(err);

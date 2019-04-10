@@ -36,7 +36,7 @@ var getDb = function(host, done) {
     }
 
     if(config.username) {
-        console.log(`Authenticating with username ${configs.username} and password "${configs.password}"`);
+        console.log(`Authenticating with username ${config.username} and password "${config.password}"`);
         mongoDb.authenticate(config.username, config.password, function(err, result) {
             if (err) {
               return done(err);
